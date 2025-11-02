@@ -1,10 +1,10 @@
 // App.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native'
-import Login from './src/pages/login';
+import Cadastro from './src/pages/Cadastro';
 
 export default function App() {
   return (
-    <Login />
+    <Cadastro />
   );
 }
