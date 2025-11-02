@@ -4,6 +4,7 @@ export const temas = {
        laranja: '#F97306',
        laranjatransparent:'#3A3027',
        branco:'#ffffffff',
-       cinza:'#1f1f1fff'
+       cinza:'#1f1f1fff',
+       cordotexto:'#C4B2A3'
     }
 }

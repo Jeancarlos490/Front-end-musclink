@@ -15,26 +15,53 @@ export const style = StyleSheet.create({
         //backgroundColor:'red',
     },
     boxmid:{
-        height:287,
-        width:'100%',
+        alignSelf: 'center',
+        height:225,
+        width:'90%',
         backgroundColor:temas.colors.cinza,
-        paddingHorizontal:21,
-        paddingVertical:50
+        paddingHorizontal:25,
+        paddingVertical:25,
+        borderRadius: 20
     },
     boxbottom:{
         height:200,
         width:'100%',
-        backgroundColor:'green'
+        //backgroundColor:'red'
     },
     logo: {
         display: 'flex',
         width:120,
         height:120,
         resizeMode: 'contain',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        borderRadius:5
     },
     input:{
+        borderRadius: 12,
         backgroundColor:temas.colors.laranjatransparent,
         alignContent:'center',
+    },
+    button:{
+        height:'33%',
+        backgroundColor:temas.colors.laranja,
+        width:350,
+        justifyContent:'center',
+        alignItems:'center',
+        alignSelf:'center',
+        borderRadius:12,
+        marginTop:40,
+        textAlign:'center'
+    },
+    forgottenpassword:{
+        color:temas.colors.cordotexto,
+        textAlign:'right',
+        fontSize: 16,
+        marginTop:11,
+    },
+    noAccount:{
+        color:temas.colors.cordotexto,
+        textAlign:'center',
+        fontSize: 16,
+        marginTop:130,
     }
 })

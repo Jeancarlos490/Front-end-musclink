@@ -18,12 +18,16 @@ export const textstyle = StyleSheet.create({
         color:temas.colors.branco
     },
     h3:{
-        fontSize: 21,
+        fontSize: 29,
+        color:temas.colors.branco,
+        fontWeight:'bold'
     },
     h4:{
-        fontSize: 18,
+        fontSize: 14,
+        color:temas.colors.branco
     },
     h5:{
+        color:temas.colors.laranja,
         fontSize: 16,
     },
     h6:{
