@@ -40,6 +40,7 @@ export const style = StyleSheet.create({
         borderRadius: 12,
         backgroundColor:temas.colors.laranjatransparent,
         alignContent:'center',
+        height:41
     },
     button:{
         height:'33%',

@@ -7,26 +7,76 @@ export const style = StyleSheet.create({
         flex:1,
         alignContent:'center',
         justifyContent:'center',
+        backgroundColor:temas.colors.blackblue
     },
     boxtop:{
         height:170,
         width:'100%',
-        backgroundColor:'red',
+        //backgroundColor:'red',
     },
     boxmid:{
         height:350,
         width:'100%',
-        backgroundColor:'green',
+        //backgroundColor:'green',
+        paddingHorizontal:10
     },
     boxbottom:{
         height:175,
         width:'100%',
-        backgroundColor:'yellow',
+        //backgroundColor:'yellow',
     },
     textinput:{
         backgroundColor:temas.colors.azulescuro,
+        borderRadius:10,
+        paddingHorizontal:10,
+        height:41,
+        color:temas.colors.branco
+    },
+    phrasetop:{
+        marginTop:25,
+        color:temas.colors.branco,
+        fontWeight:'500'
+    },
+    title1:{
+        alignSelf:"center",
+        marginTop:30,
+        fontSize:39,
+        fontWeight:'bold',
+        color:temas.colors.laranja
+    },
+    title2:{
+        alignSelf:"center",
+        marginTop:30,
+        fontSize:39,
+        fontWeight:'bold',
+        color:temas.colors.branco
+    },
+    button:{
+        height:'33%',
+        backgroundColor:temas.colors.laranja,
+        width:350,
+        justifyContent:'center',
+        alignItems:'center',
+        alignSelf:'center',
+        borderRadius:12,
         marginTop:40,
-        marginHorizontal:20,
-        borderRadius:10       
+        textAlign:'center',
+    },
+    GeneralText:{
+        fontWeight:'bold',
+        fontSize:29,
+        color:temas.colors.branco
+    },
+    withAccount:{
+        color:temas.colors.cordotexto,
+        textAlign:'center',
+        fontSize: 16,
+        marginTop:25,
+    },
+    Enter:{
+        textAlign:'center',
+        fontSize: 16,
+        marginTop:130,
+        color:temas.colors.laranja,
     }
 })

@@ -45,7 +45,6 @@ export default function Login() {
                             )}> Crie Aqui!
                     </Text>
                 </Text>
-
             </View>
         </View>
     )
