@@ -1,54 +1,45 @@
 import { StyleSheet } from "react-native";
 import { temas } from "../../global/temas";
 
-//containers e props para estilização
+//containers a serem preenchidos
 export const style = StyleSheet.create({
     container: {
         flex: 1,
         alignContent: 'center',
         justifyContent: 'center',
-        backgroundColor: '#181411'
+        backgroundColor: '#181411',
     },
     boxtop: {
-        height: 170,
+        height: 200,
         width: '100%',
     },
     boxmid: {
         alignSelf: 'center',
-        height: 350,
-        width: '95%',
+        height: 225,
+        width: '90%',
         backgroundColor: temas.colors.cinza,
-        paddingHorizontal: 10,
-        borderRadius: 20,
+        paddingHorizontal: 25,
+        paddingVertical: 25,
+        borderRadius: 20
     },
     boxbottom: {
-        height: 175,
+        height: 200,
         width: '100%',
     },
-    textinput: {
+    logo: {
+        display: 'flex',
+        width: 120,
+        height: 120,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+        borderRadius: 5
+    },
+    input: {
+        borderRadius: 12,
         backgroundColor: temas.colors.laranjatransparent,
-        borderRadius: 10,
-        paddingHorizontal: 10,
+        alignContent: 'center',
         height: 41,
-        color: temas.colors.branco
-    },
-    phrasetop: {
-        marginTop: 25,
-        color: temas.colors.branco,
-        fontWeight: '500'
-    },
-    title1: {
-        alignSelf: "center",
-        marginTop: 30,
-        fontSize: 39,
-        fontWeight: 'bold',
-        color: temas.colors.laranja
-    },
-    title2: {
-        alignSelf: "center",
-        marginTop: 30,
-        fontSize: 39,
-        fontWeight: 'bold',
+        fontSize: 14,
         color: temas.colors.branco
     },
     button: {
@@ -62,19 +53,38 @@ export const style = StyleSheet.create({
         marginTop: 40,
         textAlign: 'center',
     },
-    GeneralText: {
+    buttontext: {
         fontWeight: 'bold',
         fontSize: 29,
         color: temas.colors.branco
     },
-    withAccount: {
+    forgottenpassword: {
+        color: temas.colors.cordotexto,
+        textAlign: 'right',
+        fontSize: 16,
+        marginTop: 15,
+    },
+    noAccount: {
         color: temas.colors.cordotexto,
         textAlign: 'center',
         fontSize: 16,
         marginTop: 10,
     },
-    Enter: {
-        fontSize: 16,
+    create: {
         color: temas.colors.laranja,
+        fontSize: 16,
+    },
+    pharsetop: {
+        marginTop: 10,
+        color: temas.colors.branco,
+        fontWeight: '500',
+        fontSize: 20
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+        marginTop: 30,
+        color: temas.colors.branco
     },
 })

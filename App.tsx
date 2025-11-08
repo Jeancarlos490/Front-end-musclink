@@ -1,10 +1,10 @@
-// App.js
+import './gesture-handler';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'
-import Cadastro from './src/pages/Cadastro';
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/routes/index.route';
 
 export default function App() {
   return (
-    <Cadastro />
-  );
+    <Routes />
+      );
 }
