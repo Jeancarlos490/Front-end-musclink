@@ -26,13 +26,10 @@ export const style = StyleSheet.create({
         height: 200,
         width: '100%',
     },
-    logo: {
-        display: 'flex',
-        width: 120,
-        height: 120,
-        resizeMode: 'contain',
+    Icon: {
         alignSelf: 'center',
-        borderRadius: 5
+        marginTop:30,
+        fontSize:80
     },
     input: {
         borderRadius: 12,

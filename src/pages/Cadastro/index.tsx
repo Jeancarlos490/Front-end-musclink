@@ -29,13 +29,19 @@ export default function Cadastro() {
                 </TextInput>
                 <Text style={style.phrasetop} //Senha para Cadastro
                 >Senha</Text>
-                <TextInput style={style.textinput}
+                <TextInput
+                    autoCapitalize='none'
+                    secureTextEntry={true}
+                    style={style.textinput}
                     placeholder='Crie uma senha forte'
                     placeholderTextColor={temas.colors.cinzatransparente}>
                 </TextInput>
                 <Text style={style.phrasetop} //Confirmação de Senha
                 >Confirmar Senha</Text>
-                <TextInput style={style.textinput}
+                <TextInput
+                    autoCapitalize='none'
+                    secureTextEntry={true}
+                    style={style.textinput}
                     placeholder='Confirme a sua senha'
                     placeholderTextColor={temas.colors.cinzatransparente}>
                 </TextInput>
