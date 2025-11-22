@@ -1,5 +1,5 @@
-import React, { startTransition } from 'react';
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { style } from './style';
 import { temas } from '../../global/temas';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
@@ -24,8 +24,9 @@ export default function Recuperacao() {
                 </Text>
                 <Text style={style.pharsetop}>E-Mail</Text>
                 <TextInput
-                    autoFocus={true}
-                    style={style.input} />
+                    style={[style.input, {fontSize:14}]}
+                    placeholder='Digite o seu E-mail'
+                    placeholderTextColor={temas.colors.cordotexto} />
                 <TouchableOpacity style={style.button}>
                     <Text style={style.buttontext}>Enviar link de recuperação</Text>
                 </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { style } from './style';
 import { temas } from '../../global/temas';
 import { useNavigation } from '@react-navigation/native';

@@ -1,10 +1,12 @@
 import './gesture-handler';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes/index.route';
+import Homescreen from './src/pages/Homescreen';
+import { NavigationContainer, StackRouter } from '@react-navigation/native';
+import Bottomtab from './src/routes/bottom.routes';
 
 export default function App() {
   return (
-    <Routes />
-      );
+      <Routes />
+  );
 }

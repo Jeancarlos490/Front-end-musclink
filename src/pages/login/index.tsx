@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { style } from './style';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { temas } from '../../global/temas';
@@ -7,6 +7,18 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 export default function Login() {
     const navigation = useNavigation<NavigationProp<any>>();
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    function Logincheck() {
+        if (!email || !senha) {
+            Alert.alert('Erro', 'Preencha todos os campos.');
+            return; //Inpede o login caso a senha ou email estejam errados
+        }
+
+        navigation.navigate("Homescreen" as never)
+    }
     return (
         <View style={style.container}>
             <View style={style.boxtop}>
@@ -20,13 +32,15 @@ export default function Login() {
             <View style={style.boxmid}>
                 <Text style={style.pharsetop}>E-Mail</Text>
                 <TextInput //Local do Email
-
+                    value={email}
+                    onChangeText={setEmail}
                     style={[style.input]}
                     placeholder='Digite o seu E-mail'
-                    placeholderTextColor={
-                        temas.colors.cordotexto} />
+                    placeholderTextColor={temas.colors.cordotexto} />
                 <Text style={style.pharsetop}>Senha</Text>
                 <TextInput //Local da Senha
+                    value={senha}
+                    onChangeText={setSenha}
                     autoCapitalize='none'
                     secureTextEntry={true}
                     style={[style.input]}
@@ -40,7 +54,9 @@ export default function Login() {
                 </TouchableOpacity>
             </View>
             <View style={style.boxbottom}>
-                <TouchableOpacity style={style.button}>
+                <TouchableOpacity
+                 style={style.button}
+                 onPress={Logincheck}>
                     <Text style={style.buttontext}>Entrar</Text>
                 </TouchableOpacity>
                 <Text style={style.noAccount}>
