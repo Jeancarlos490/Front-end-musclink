@@ -1,16 +1,15 @@
 import React from 'react';
-import { Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { style } from './style';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { temas } from '../../global/temas';
 
-export default function Perfil() {
+export default function Esqueleto() {
+
     return (
         <View style={style.container}>
             <View style={style.boxtop}>
                 <View style={style.profileframe}>
-                    <Image source={require("../../assets/heman.png")} style={style.profilepicture} />
-                    <Text style={style.profileText}>He-Man</Text>
+                    <Image source={require("../../../../assets/esqueleto.png")} style={style.profilepicture} />
+                    <Text style={style.profileText}>Esqueleto</Text>
                     <Text style={style.profiletypename}>Aluno</Text>
                 </View>
             </View>
@@ -20,16 +19,15 @@ export default function Perfil() {
                 </Text>
                 <View style={style.AreaAboutme}>
                     <Text style={style.AboutmeTextArea}>
-                        Sou He-Man,
-                        defensor de Eternia!
-                        Treino com disciplina para manter minha força e coragem sempre em alta.
-                        Aqui registro minha evolução para continuar digno do poder de Grayskull!
+                        EU, o grande ESQUELETO, treino para dominar Eternia com músculos implacáveis!
+                        Prepare-se para ver minha verdadeira força, seu tolo!
+                        Nada impedirá meu progresso na academia!
                     </Text>
                 </View>
                 <View style={style.StatisticsArea}>
                     <View style={style.StastiticsFrame}>
                         <Text style={style.StatisticsInfoNumber}>
-                            320
+                            410
                         </Text>
                         <Text style={style.StatisticsInfoText}>
                             Dias Treinados
@@ -37,7 +35,7 @@ export default function Perfil() {
                     </View>
                     <View style={style.StastiticsFrame}>
                         <Text style={style.StatisticsInfoNumber}>
-                            41
+                            45
                         </Text>
                         <Text style={style.StatisticsInfoText}>
                             Sequencia de Dias Treinados
@@ -45,7 +43,7 @@ export default function Perfil() {
                     </View>
                     <View style={[style.StastiticsFrame, { width: 360 }]}>
                         <Text style={style.StatisticsInfoNumber}>
-                            1920
+                            1880
                         </Text>
                         <Text style={style.StatisticsInfoText}>
                             Média de exercicios total

@@ -19,13 +19,13 @@ export default function Cadastro() {
                 >Nome Completo</Text>
                 <TextInput style={style.textinput}
                     placeholder='Digite o seu Nome completo'
-                    placeholderTextColor={temas.colors.cinzatransparente}>
+                    placeholderTextColor={temas.colors.cinzaclaro}>
                 </TextInput>
                 <Text style={style.phrasetop} //Email para Cadastro
                 >E-mail</Text>
                 <TextInput style={style.textinput}
                     placeholder='Digite o seu Email'
-                    placeholderTextColor={temas.colors.cinzatransparente}>
+                    placeholderTextColor={temas.colors.cinzaclaro}>
                 </TextInput>
                 <Text style={style.phrasetop} //Senha para Cadastro
                 >Senha</Text>
@@ -34,7 +34,7 @@ export default function Cadastro() {
                     secureTextEntry={true}
                     style={style.textinput}
                     placeholder='Crie uma senha forte'
-                    placeholderTextColor={temas.colors.cinzatransparente}>
+                    placeholderTextColor={temas.colors.cinzaclaro}>
                 </TextInput>
                 <Text style={style.phrasetop} //Confirmação de Senha
                 >Confirmar Senha</Text>
@@ -43,7 +43,7 @@ export default function Cadastro() {
                     secureTextEntry={true}
                     style={style.textinput}
                     placeholder='Confirme a sua senha'
-                    placeholderTextColor={temas.colors.cinzatransparente}>
+                    placeholderTextColor={temas.colors.cinzaclaro}>
                 </TextInput>
             </View>
             <View style={style.boxbottom}>

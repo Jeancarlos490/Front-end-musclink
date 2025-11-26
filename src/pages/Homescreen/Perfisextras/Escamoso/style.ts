@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { temas } from "../../global/temas";
+import { temas } from "../../../../global/temas";
 
 //containers a serem preenchidos
 export const style = StyleSheet.create({
@@ -63,7 +63,7 @@ export const style = StyleSheet.create({
     AreaAboutme: {
         backgroundColor: temas.colors.laranjaescuro,
         width: 375,
-        height: 120,
+        height: 75,
         alignSelf: 'center',
         borderRadius: 20
     },

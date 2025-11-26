@@ -4,6 +4,10 @@ import Login from '../pages/login'
 import Cadastro from '../pages/Cadastro'
 import Recuperacao from '../pages/Recuperação';
 import Bottomtab from './bottom.routes';
+import Esqueleto from '../pages/Homescreen/Perfisextras/Esqueleto';
+import EvilLyn from '../pages/Homescreen/Perfisextras/EvilLyn';
+import Escamoso from '../pages/Homescreen/Perfisextras/Escamoso';
+import Simiano from '../pages/Homescreen/Perfisextras/Simiano';
 
 export default function Routes() {
     const Stack = createNativeStackNavigator();
@@ -29,6 +33,28 @@ export default function Routes() {
                     name="Homescreen"
                     component={Bottomtab}
                 />
+
+                <Stack.Screen
+                    name="Escamoso"
+                    component={Escamoso}
+                />
+
+                <Stack.Screen
+                    name="Esqueleto"
+                    component={Esqueleto}
+                />
+
+                <Stack.Screen
+                    name="EvilLyn"
+                    component={EvilLyn}
+                />
+
+                <Stack.Screen
+                    name="Simiano"
+                    component={Simiano}
+                />
+
+                
             </Stack.Navigator>
         </NavigationContainer>
     );

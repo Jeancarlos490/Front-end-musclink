@@ -14,7 +14,7 @@ export const style = StyleSheet.create({
         //backgroundColor: 'purple'
     },
     boxmid:{
-        backgroundColor:temas.colors.cinzaclaro,
+        backgroundColor:temas.colors.cinza,
         borderRadius:20,
         width:390,
         alignSelf:'center',
@@ -30,7 +30,7 @@ export const style = StyleSheet.create({
     personstab:{
         height:180,
         width:170,
-        backgroundColor: temas.colors.cinza,
+        backgroundColor: temas.colors.laranjatransparent,
         borderRadius:20,
         alignSelf:'center',
         marginTop:'12%'

@@ -1,17 +1,16 @@
 import React from 'react';
-import { Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { style } from './style';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { temas } from '../../global/temas';
 
-export default function Perfil() {
+export default function EvilLyn() {
+
     return (
         <View style={style.container}>
             <View style={style.boxtop}>
                 <View style={style.profileframe}>
-                    <Image source={require("../../assets/heman.png")} style={style.profilepicture} />
-                    <Text style={style.profileText}>He-Man</Text>
-                    <Text style={style.profiletypename}>Aluno</Text>
+                    <Image source={require("../../../../assets/evilyn.png")} style={style.profilepicture} />
+                    <Text style={style.profileText}>EvilLyn</Text>
+                    <Text style={style.profiletypename}>Personal</Text>
                 </View>
             </View>
             <View style={style.boxbottom}>
@@ -20,35 +19,34 @@ export default function Perfil() {
                 </Text>
                 <View style={style.AreaAboutme}>
                     <Text style={style.AboutmeTextArea}>
-                        Sou He-Man,
-                        defensor de Eternia!
-                        Treino com disciplina para manter minha força e coragem sempre em alta.
-                        Aqui registro minha evolução para continuar digno do poder de Grayskull!
+                        Sou Evil-Lyn, sua instrutora.
+                        Forjarei seu corpo e sua disciplina com magia — e intensidade.
+                        Siga minhas orientações e talvez você alcance o poder que tanto deseja.
                     </Text>
                 </View>
                 <View style={style.StatisticsArea}>
                     <View style={style.StastiticsFrame}>
                         <Text style={style.StatisticsInfoNumber}>
-                            320
+                            3
                         </Text>
                         <Text style={style.StatisticsInfoText}>
-                            Dias Treinados
+                            Alunos atuais 
                         </Text>
                     </View>
                     <View style={style.StastiticsFrame}>
                         <Text style={style.StatisticsInfoNumber}>
-                            41
+                            21
                         </Text>
                         <Text style={style.StatisticsInfoText}>
-                            Sequencia de Dias Treinados
+                            Total de Alunos Sastifeitos
                         </Text>
                     </View>
                     <View style={[style.StastiticsFrame, { width: 360 }]}>
                         <Text style={style.StatisticsInfoNumber}>
-                            1920
+                            4.3/5.0
                         </Text>
                         <Text style={style.StatisticsInfoText}>
-                            Média de exercicios total
+                            Avaliações Gerais
                         </Text>
                     </View>
                 </View>

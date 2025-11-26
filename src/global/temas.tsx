@@ -7,8 +7,8 @@ export const temas = {
        cinza:'#1f1f1fff',
        cordotexto:'#C4B2A3',
        azulescuro:'#1F2937',
-       cinzatransparente:'#9CA3AF',
+       laranjaescuro:'#472916ff',
        blackblue:'#121212',
-       cinzaclaro:'#2A2A2A'
+       cinzaclaro:'#999999ff'
     }
 }
