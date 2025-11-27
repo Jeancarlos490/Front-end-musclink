@@ -32,7 +32,7 @@ export default function Recuperacao() {
                 </TouchableOpacity>
                 <Text style={style.back}>Voltar para a pagina de
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("Login" as never)}>
+                        onPress={() => navigation.goBack()}>
                         <Text style={[style.loginback]}> Login</Text>
                     </TouchableOpacity>
                 </Text>

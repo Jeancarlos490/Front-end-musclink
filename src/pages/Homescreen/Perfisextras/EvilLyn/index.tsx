@@ -1,12 +1,24 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { style } from './style';
+import { temas } from '../../../../global/temas';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+
 
 export default function EvilLyn() {
+
+    const navigation = useNavigation();
 
     return (
         <View style={style.container}>
             <View style={style.boxtop}>
+                <TouchableOpacity>
+                    <Ionicons name="arrow-back"
+                        size={50}
+                        color={temas.colors.laranja}
+                        onPress={navigation.goBack} />
+                </TouchableOpacity>
                 <View style={style.profileframe}>
                     <Image source={require("../../../../assets/evilyn.png")} style={style.profilepicture} />
                     <Text style={style.profileText}>EvilLyn</Text>

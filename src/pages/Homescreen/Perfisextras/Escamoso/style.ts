@@ -31,7 +31,6 @@ export const style = StyleSheet.create({
         backgroundColor: temas.colors.cinza,
         borderRadius: 20,
         alignSelf: 'center',
-        marginTop: '12%'
     },
     profilepicture: {
         width: 150,

@@ -53,7 +53,7 @@ export default function Cadastro() {
                 <Text style={style.withAccount}>
                     Já tem uma conta?
                     <TouchableOpacity //Leva para a tela de Login
-                        onPress={() => navigation.navigate("Login" as never)}>
+                        onPress={() => navigation.goBack()}>
                         <Text style={[style.withAccount, style.Enter]}> Faça o login aqui!
                         </Text>
                     </TouchableOpacity>

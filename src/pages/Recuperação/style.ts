@@ -31,7 +31,7 @@ export const style = StyleSheet.create({
     },
     text:{
         fontSize:25,
-        color: temas.colors.cinzatransparente,
+        color: temas.colors.cinzaclaro,
         textAlign:'center'
     },
     input:{
@@ -67,7 +67,7 @@ export const style = StyleSheet.create({
         textAlign:'center',
         marginTop:70,
         fontSize: 16,
-        color:temas.colors.branco
+        color:temas.colors.cinzaclaro
     },
     loginback:{
         color: temas.colors.laranja,

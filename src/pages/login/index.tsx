@@ -3,7 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { style } from './style';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { temas } from '../../global/temas';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { useNavigation, NavigationProp, StackActions } from '@react-navigation/native';
 
 export default function Login() {
     const navigation = useNavigation<NavigationProp<any>>();
@@ -17,7 +17,7 @@ export default function Login() {
             return; //Inpede o login caso a senha ou email estejam errados
         }
 
-        navigation.navigate("Homescreen" as never)
+        navigation.dispatch(StackActions.replace('Homescreen'))
     }
     return (
         <View style={style.container}>
@@ -55,8 +55,8 @@ export default function Login() {
             </View>
             <View style={style.boxbottom}>
                 <TouchableOpacity
-                 style={style.button}
-                 onPress={Logincheck}>
+                    style={style.button}
+                    onPress={Logincheck}>
                     <Text style={style.buttontext}>Entrar</Text>
                 </TouchableOpacity>
                 <Text style={style.noAccount}>
