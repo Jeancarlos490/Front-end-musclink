@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
         backgroundColor: '#181411',
     },
     boxtop: {
-        height: 300,
+        height: 350,
     },
     boxmid: {
         height: 380,

@@ -51,7 +51,7 @@ export const style = StyleSheet.create({
     },
     MessagePreview:{
         marginLeft:20,
+        marginTop:10,
         color:temas.colors.cordotexto,
-        marginTop:10
     }
 })

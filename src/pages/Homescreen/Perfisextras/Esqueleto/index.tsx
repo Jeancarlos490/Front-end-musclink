@@ -5,7 +5,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { temas } from '../../../../global/temas';
 import { useNavigation } from '@react-navigation/native';
 
-
 export default function Esqueleto() {
 
     const navigation = useNavigation();

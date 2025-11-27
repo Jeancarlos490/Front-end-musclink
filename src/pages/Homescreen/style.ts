@@ -33,7 +33,7 @@ export const style = StyleSheet.create({
         backgroundColor: temas.colors.laranjatransparent,
         borderRadius:20,
         alignSelf:'center',
-        marginTop:'12%'
+        marginTop:50
     },
     title:{
         fontSize:26,
