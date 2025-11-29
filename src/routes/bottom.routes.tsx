@@ -4,6 +4,7 @@ import Perfil from '../pages/Perfil';
 import Chat from '../pages/Chat';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { temas } from '../global/temas';
+import Treino from '../pages/Treino';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,8 +23,8 @@ export default function Bottomtab() {
         }}
       />
       <Tab.Screen
-        name="Chat"
-        component={Chat}
+        name="Treino"
+        component={Treino}
         options={{
           tabBarIcon: ({ }) => <Ionicons name="chatbubble-ellipses"
             size={24}
