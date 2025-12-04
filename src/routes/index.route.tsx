@@ -9,20 +9,19 @@ import EvilLyn from '../pages/Homescreen/Perfisextras/EvilLyn';
 import Escamoso from '../pages/Homescreen/Perfisextras/Escamoso';
 import Simiano from '../pages/Homescreen/Perfisextras/Simiano';
 import TopTabs from './top.routes';
-import Timer from '../pages/Timer';
 import WorkoutRunner from '../pages/WorkoutRunner';
 
 export default function Routes() {
     const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='TrainingSelection'
+            <Stack.Navigator initialRouteName='Login'
                 screenOptions={{
                     headerShown: false
                 }}>
                 <Stack.Screen
-                    name="TrainingSelection"
-                    component={TopTabs}
+                    name="Login"
+                    component={Login}
                 />
                 <Stack.Screen
                     name="Cadastro"
@@ -58,15 +57,15 @@ export default function Routes() {
                 />
 
                 <Stack.Screen
-                name="Timer"
-                component={Timer}
+                    name="TopTabs"
+                    component={TopTabs}
                 />
 
                 <Stack.Screen
                     name="WorkoutRunner"
                     component={WorkoutRunner}
                 />
-                
+
             </Stack.Navigator>
         </NavigationContainer>
     );

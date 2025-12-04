@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Homescreen from '../pages/Homescreen';
 import Perfil from '../pages/Perfil';
-import Chat from '../pages/Chat';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { temas } from '../global/temas';
-import Treino from '../pages/Timer';
+import TopTabs from './top.routes';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,10 +23,10 @@ export default function Bottomtab() {
         }}
       />
       <Tab.Screen
-        name="Treino"
-        component={Treino}
+        name="TopTabs"
+        component={TopTabs}
         options={{
-          tabBarIcon: ({ }) => <Ionicons name="chatbubble-ellipses"
+          tabBarIcon: ({ }) => <MaterialCommunityIcons name="arm-flex"
             size={24}
             color={temas.colors.laranja} />
         }}

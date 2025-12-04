@@ -1,27 +1,36 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import Treino from "../pages/Timer";
 import TrainingSelection from "../pages/TrainingSelection";
 import Historico from "../pages/Historico";
 import SavedWorkouts from "../pages/SavedWorkouts";
+import { temas } from "../global/temas";
 
 const TopTab = createMaterialTopTabNavigator();
 
 export default function TopTabs() {
     return (
         <TopTab.Navigator
-        screenOptions={{tabBarStyle:{marginTop:50, height:50}}}>
-            
-            <TopTab.Screen
-                name="TrainingSelection"
-                component={TrainingSelection} />
+            screenOptions={{ tabBarStyle: { marginTop: 50, height: 50, backgroundColor: temas.colors.cinza } }}>
 
             <TopTab.Screen
-                name="SavedWorkouts"
-                component={SavedWorkouts} />
+                name="Seleção de Treino"
+                component={TrainingSelection}
+                options={{
+                    tabBarActiveTintColor: temas.colors.branco,
+                }} />
+
+            <TopTab.Screen
+                name="Treinos Salvos"
+                component={SavedWorkouts}
+                options={{
+                    tabBarActiveTintColor: temas.colors.branco,
+                }} />
 
             <TopTab.Screen
                 name="Historico"
-                component={Historico} />
+                component={Historico}
+                options={{
+                    tabBarActiveTintColor: temas.colors.branco,
+                }} />
         </TopTab.Navigator>
     );
 }

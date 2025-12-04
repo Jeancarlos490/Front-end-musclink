@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Text, View, TouchableOpacity, ScrollView } from 'react-native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { useNavigation, NavigationProp, useFocusEffect } from '@react-navigation/native';
 import { style } from './style';
 import { temas } from '../../global/temas';
 import { Workout, WorkoutExercise, WorkoutSet } from '../../types';
 import { muscleGroupLabels } from '../../data/exercises';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SavedWorkouts() {
     const navigation = useNavigation<NavigationProp<any>>();
@@ -14,27 +15,24 @@ export default function SavedWorkouts() {
 
     const key = 'musclink.workouts';
 
-    const loadWorkouts = () => {
+    const loadWorkouts = async () => {
         try {
-            const canUseLocal = typeof window !== 'undefined' && (window as any).localStorage;
-            if (canUseLocal) {
-                const raw = (window as any).localStorage.getItem(key);
-                const arr = raw ? JSON.parse(raw) : [];
-                setWorkouts(arr);
-            }
-        } catch {}
+            const raw = await AsyncStorage.getItem(key);
+            const arr = raw ? JSON.parse(raw) : [];
+            setWorkouts(arr);
+        } catch { }
     };
 
-    const removeWorkout = (id: string) => {
+    const removeWorkout = async (id: string) => {
         try {
-            const canUseLocal = typeof window !== 'undefined' && (window as any).localStorage;
-            if (canUseLocal) {
-                const updated = workouts.filter(w => w.id !== id);
-                (window as any).localStorage.setItem(key, JSON.stringify(updated));
-                setWorkouts(updated);
-            }
-        } catch {}
+            const updated = workouts.filter(w => w.id !== id);
+            await AsyncStorage.setItem(key, JSON.stringify(updated));
+            setWorkouts(updated);
+        } catch (err) {
+            console.log("Erro ao remover treino", err);
+        }
     };
+
 
     const startEdit = (w: Workout) => {
         setEditingId(w.id);
@@ -58,7 +56,7 @@ export default function SavedWorkouts() {
                 setWorkouts(updated);
                 cancelEdit();
             }
-        } catch {}
+        } catch { }
     };
 
     const updateSet = (exerciseIndex: number, setIndex: number, patch: Partial<WorkoutSet>) => {
@@ -98,9 +96,12 @@ export default function SavedWorkouts() {
         }
     };
 
-    useEffect(() => {
-        loadWorkouts();
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            loadWorkouts();
+        }, [])
+    );
+
 
     return (
         <View style={style.container}>
@@ -123,7 +124,7 @@ export default function SavedWorkouts() {
                     <View key={w.id} style={style.workoutCard}>
                         <View style={style.workoutHeader}>
                             <Text style={style.workoutName}>{w.name}</Text>
-                            <Text style={style.workoutMeta}>{w.exercises.length} exercícios • {Math.round(w.estimatedDuration/60)} min</Text>
+                            <Text style={style.workoutMeta}>{w.exercises.length} exercícios • {Math.round(w.estimatedDuration / 60)} min</Text>
                         </View>
                         <View style={style.chipsRow}>
                             {w.muscleGroups.slice(0, 4).map(g => (
@@ -131,7 +132,7 @@ export default function SavedWorkouts() {
                             ))}
                         </View>
                         <View style={style.actionsRow}>
-                            <TouchableOpacity style={style.primaryButton} onPress={() => navigation.navigate('WorkoutRunner' as never, { workoutId: w.id } as never)}>
+                            <TouchableOpacity style={style.primaryButton} onPress={() => navigation.navigate('WorkoutRunner', { workoutId: w.id } as never)}>
                                 <Text style={style.primaryButtonText}>Abrir</Text>
                             </TouchableOpacity>
                             {editingId === w.id ? (

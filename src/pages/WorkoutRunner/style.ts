@@ -15,7 +15,7 @@ export const style = StyleSheet.create({
         fontSize:32,
         fontWeight:'bold',
         alignSelf:'center',
-        marginBottom:20
+        marginVertical:20
     },
     timerBox:{
         height:80,
@@ -25,7 +25,7 @@ export const style = StyleSheet.create({
         alignItems:'center',
         alignSelf:'center',
         borderRadius:20,
-        marginBottom:12
+        marginBottom:50
     },
     timerText:{
         fontWeight:'bold',

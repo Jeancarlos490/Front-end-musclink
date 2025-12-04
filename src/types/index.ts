@@ -1,7 +1,3 @@
-// =============================================
-// TIPOS TYPESCRIPT - MUSCLINK
-// =============================================
-
 // Grupos musculares
 export type MuscleGroup =
   | 'peito'

@@ -1,10 +1,12 @@
 import { Text, View, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { style } from './style';
 import { temas } from '../../global/temas';
-import { useNavigation, NavigationProp} from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { exercisesData, muscleGroupLabels } from '../../data/exercises';
 import { Exercise, Workout, WorkoutExercise } from '../../types';
 import { useMemo, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function TrainingSelection() {
     const navigation = useNavigation<NavigationProp<any>>();
@@ -32,10 +34,11 @@ export default function TrainingSelection() {
         }
     };
 
-    const salvarTreino = () => {
+    const salvarTreino = async () => {
         const id = `wk_${Date.now()}`;
         const nome = nomeTreino.trim() || 'Meu Treino';
         const gruposTreino = Array.from(new Set(selecionados.map(e => e.muscleGroup)));
+
         const exercicios: WorkoutExercise[] = selecionados.map((e, idx) => ({
             id: `${id}_ex_${e.id}`,
             exerciseId: e.id,
@@ -46,7 +49,11 @@ export default function TrainingSelection() {
                 { id: `${id}_${e.id}_s3`, targetReps: 10, restTime: 60, completed: false }
             ]
         }));
-        const estimatedDuration = exercicios.reduce((acc, we) => acc + we.sets.reduce((s, set) => s + set.restTime, 0) + we.sets.length * 40, 0);
+
+        const estimatedDuration = exercicios.reduce((acc, we) =>
+            acc + we.sets.reduce((s, set) => s + set.restTime, 0) + we.sets.length * 40
+            , 0);
+
         const workout: Workout = {
             id,
             name: nome,
@@ -60,18 +67,25 @@ export default function TrainingSelection() {
             isFavorite: false,
             isTemplate: true
         };
+
         const key = 'musclink.workouts';
+
         try {
-            const canUseLocal = typeof window !== 'undefined' && (window as any).localStorage;
-            if (canUseLocal) {
-                const raw = (window as any).localStorage.getItem(key);
-                const arr = raw ? JSON.parse(raw) : [];
-                (window as any).localStorage.setItem(key, JSON.stringify([...arr, workout]));
-            }
-        } catch {}
+            const raw = await AsyncStorage.getItem(key);
+            const arr = raw ? JSON.parse(raw) : [];
+
+            const novoArray = [...arr, workout];
+
+            await AsyncStorage.setItem(key, JSON.stringify(novoArray));
+        } catch (err) {
+            console.log("Erro ao salvar treino:", err);
+        }
+
+        // limpa tudo
         setSelecionados([]);
         setBusca('');
         setNomeTreino('');
+;
     };
 
     return (

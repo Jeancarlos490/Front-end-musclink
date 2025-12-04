@@ -6,6 +6,8 @@ import { temas } from '../../global/temas';
 import { Workout } from '../../types';
 import { getExerciseById } from '../../data/exercises';
 import { Cronometro } from '../../hooks/Cronometro';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Ionicons } from '@expo/vector-icons';
 
 type Params = { WorkoutRunner: { workoutId: string } };
 
@@ -22,23 +24,27 @@ export default function WorkoutRunner() {
     const { tempo, isRunning, iniciarPausar, resetar, formatarTempo } = Cronometro();
     const [startedAt, setStartedAt] = useState<string>(new Date().toISOString());
 
-    const key = 'musclink.workouts';
 
+    const key = 'musclink.workouts';
     useEffect(() => {
-        try {
-            const canUseLocal = typeof window !== 'undefined' && (window as any).localStorage;
-            if (canUseLocal) {
-                const raw = (window as any).localStorage.getItem(key);
+        async function loadWorkout() {
+            try {
+                const raw = await AsyncStorage.getItem(key);
                 const arr: Workout[] = raw ? JSON.parse(raw) : [];
                 const w = arr.find(x => x.id === workoutId) || null;
                 setWorkout(w);
+            } catch (err) {
+                console.log('Erro ao carregar workout:', err);
             }
-        } catch {}
+        }
+
+        loadWorkout();
     }, [workoutId]);
 
     useEffect(() => {
         if (!isResting) return;
         if (restIntervalRef.current) clearInterval(restIntervalRef.current);
+
         restIntervalRef.current = setInterval(() => {
             setRestRemaining(prev => {
                 const next = prev - 1;
@@ -50,6 +56,7 @@ export default function WorkoutRunner() {
                 return next;
             });
         }, 1000);
+
         return () => {
             if (restIntervalRef.current) clearInterval(restIntervalRef.current);
         };
@@ -63,25 +70,31 @@ export default function WorkoutRunner() {
         return { wx, ex };
     }, [workout, exerciseIndex]);
 
-    const salvarLog = () => {
+    const salvarLog = async () => {
         try {
             const keyLogs = 'musclink.workoutLogs';
-            const canUseLocal = typeof window !== 'undefined' && (window as any).localStorage;
-            if (canUseLocal && workout) {
-                const raw = (window as any).localStorage.getItem(keyLogs);
-                const logs = raw ? JSON.parse(raw) : [];
-                const logItem = {
-                    id: `log_${Date.now()}`,
-                    workoutId: workout.id,
-                    workoutName: workout.name,
-                    startedAt,
-                    completedAt: new Date().toISOString(),
-                    duration: tempo
-                };
-                (window as any).localStorage.setItem(keyLogs, JSON.stringify([logItem, ...logs]));
-            }
-        } catch {}
+
+            if (!workout) return;
+
+            const raw = await AsyncStorage.getItem(keyLogs);
+            const logs = raw ? JSON.parse(raw) : [];
+
+            const logItem = {
+                id: `log_${Date.now()}`,
+                workoutId: workout.id,
+                workoutName: workout.name,
+                startedAt,
+                completedAt: new Date().toISOString(),
+                duration: tempo
+            };
+
+            await AsyncStorage.setItem(keyLogs, JSON.stringify([logItem, ...logs]));
+
+        } catch (err) {
+            console.log('Erro ao salvar log:', err);
+        }
     };
+
 
     const completeSet = () => {
         if (!workout || !currentExercise) return;
@@ -118,7 +131,7 @@ export default function WorkoutRunner() {
 
     if (!workout) {
         return (
-            <View style={style.container}> 
+            <View style={style.container}>
                 <Text style={style.errorText}>Treino não encontrado</Text>
             </View>
         );
@@ -129,6 +142,13 @@ export default function WorkoutRunner() {
 
     return (
         <View style={style.container}>
+            <TouchableOpacity>
+                <Ionicons name="arrow-back"
+                    size={50}
+                    color={temas.colors.laranja}
+                    onPress={navigation.goBack}
+                    style={{marginTop:50}} />
+            </TouchableOpacity>
             <ScrollView contentContainerStyle={style.scrollContent}>
                 <Text style={style.title}>Executando<Text style={{ color: temas.colors.laranja }}> {workout.name}</Text></Text>
 
